@@ -121,7 +121,7 @@ app.get('/callback', function(req, res) {
   .getArtistAlbums('02kJSzxNuaWGqwubyUba0Z', { limit: 5, include_groups: 'single', market: 'US' })
   .then(
     function(data) {
-        app.get('/hi', (req, res, next) => {
+        app.get('/data', (req, res, next) => {
             try {
                 console.log(body)
                 res.send(data)
