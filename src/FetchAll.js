@@ -3,9 +3,8 @@ import axios from 'axios'
 
 const FetchAll = (props) => {
     const {ids} = props
-    const [tracks, setTracks] = useState({})
+    const [tracks, setTracks] = useState([])
     const [token, setToken] = useState('')
-
     useEffect(() => {
         const fetchToken = async () => {
                 try {
@@ -19,24 +18,24 @@ const FetchAll = (props) => {
     }, [])
 
     useEffect(() => {
-        const fetchTracks = async () => {
+        const fetchTracks = async (id) => {
                 try {
                     if(token) { 
-                        console.log(token)
-                        const {data} = await axios.get(`https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums`, {
+                        const {data} = await axios.get(`https://api.spotify.com/v1/artists/${id}/albums?limit=5&market=US&album_type=single`, {
                         headers: {
                         "Authorization": `Bearer ${token}`
                         }
                     })
-                    console.log(data)
-
+                    setTracks(prev => [data, ...prev])
                 }
             } catch(err) {
                 console.log(err)
             }
         }
-        fetchTracks()
-    }, [token])
+        ids.forEach((id) => fetchTracks(id))
+    }, [token, ids])
+
+    if(tracks.length === ids.length ) console.log(tracks)
 
     return (
         <div>from fetchTracks</div>
