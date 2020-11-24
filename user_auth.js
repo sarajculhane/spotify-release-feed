@@ -4,7 +4,7 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 var SpotifyWebApi = require('spotify-web-api-node');
-const ids = []
+
 
 var client_id = 'b1dd47b15c6443f3ac8af7dcd8947d93'; // Your client id
 var client_secret = '09f80ef7a0c442729726750eff49358a'; // Your secret
@@ -101,42 +101,81 @@ app.get('/callback', function(req, res) {
          json: true
        };
        var optionsTwo = {
-        url: 'https://api.spotify.com/v1/me/following?type=artist',
+        url: 'https://api.spotify.com/v1/me/following?type=artist&limit=50',
         headers: { 'Authorization': 'Bearer ' + access_token },
         json: true
       };
 
-
+      var offset = 0
+      const ids = []
        // use the access token to access the Spotify Web API
        request.get(options, function(error, response, body) {
         //  console.log(body);
        });
 
        request.get(optionsTwo, function(error, response, body) {
-           
-        //    body.artists.items.forEach((artist) => console.log(artist.name, artist.uri.split(':')[2]))
-           body.artists.items.forEach((artist) => ids.push(artist.uri.split(':')[2]))
-            spotifyApi.setAccessToken(access_token)
-           spotifyApi
-  .getArtistAlbums('02kJSzxNuaWGqwubyUba0Z', { limit: 5, include_groups: 'single', market: 'US' })
-  .then(
-    function(data) {
-        app.get('/data', (req, res, next) => {
-            try {
-                console.log(body)
-                res.send(data)
-            } catch(err) {
-                console.log(err)
-            }
+        
+        var length = body.artists.total
+        
+        while(length > 0) {
+            const localId = []
+           request.get({
+            url: `https://api.spotify.com/v1/me/following?type=artist&limit=50&offset=${offset}`,
+            headers: { 'Authorization': 'Bearer ' + access_token },
+            json: true
+          }, function(error, response, body) {
+               if(body.artists) {
+                    body.artists.items.forEach((artist) => ids.push(artist.uri.split(':')[2]))
+
+                    app.get('/data', (req, res, next) => {
+                        try {
+                            res.send(ids)
+                        } catch(err) {
+                            console.log(err)
+                        }
+                        // try {
+                        //     ids.forEach((id) =>  {
+                        //         console.log(id)
+                        //         spotifyApi.setAccessToken(access_token)
+                        //         spotifyApi.getArtistAlbums(id, { limit: 5, include_groups: 'single', market: 'US' }).then(
+                                    
+                        // function(data) {
+                            
+                        //     res.send('hi')
+                        // },
+                        // function(err) {
+                        //     console.error(err);
+                        // }
+                        // )
+                        // });
+                        // } catch(err) {
+                        //     console.log(err, 'the error is in data')
+                        // }
+                    })
+
+}
+        
         })
-    },
-    function(err) {
-      console.error(err);
-    }
-  );
+            offset+=50
+            length-=50
+        }
+        //    body.artists.items.forEach((artist) => console.log(artist.name, artist.uri.split(':')[2]))
+           
+           
+
 
            
       });
+
+      app.get('/access', (req, res) => {
+        try {
+            res.send(access_token)
+        } catch(err) {
+            console.log(err)
+        }
+    })
+
+
        // we can also pass the token to the browser to make requests from there
        res.redirect('/#' +
          querystring.stringify({
@@ -178,6 +217,10 @@ app.get('/refresh_token', function(req, res) {
      res.send({
        'access_token': access_token
      });
+
+
+
+
    }
  });
 });
