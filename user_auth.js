@@ -15,7 +15,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: '09f80ef7a0c442729726750eff49358a',
     redirectUri: 'http://localhost:8888/callback'
   });
-
+  let last = 'test'
 /**
 * Generates a random string containing numbers and letters
 * @param  {number} length The length of the string
@@ -106,66 +106,50 @@ app.get('/callback', function(req, res) {
         json: true
       };
 
-      var offset = 0
-      const ids = []
+
        // use the access token to access the Spotify Web API
        request.get(options, function(error, response, body) {
         //  console.log(body);
        });
+//        var offset = 0
 
-       request.get(optionsTwo, function(error, response, body) {
         
-        var length = body.artists.total
+//         const ids = []
+//         let length = 400
         
-        while(length > 0) {
-            const localId = []
-           request.get({
-            url: `https://api.spotify.com/v1/me/following?type=artist&limit=50&offset=${offset}`,
-            headers: { 'Authorization': 'Bearer ' + access_token },
-            json: true
-          }, function(error, response, body) {
-               if(body.artists) {
-                    body.artists.items.forEach((artist) => ids.push(artist.uri.split(':')[2]))
+//         while(length > 0 ) {
+//             console.log(last)
+//            request.get({
+//             url: `https://api.spotify.com/v1/me/following?type=artist&limit=10${last}`,
+//             headers: { 'Authorization': 'Bearer ' + access_token },
+//             json: true
+//           }, function(error, response, body) {
+//             // body.artists.items.forEach((artist) => console.log(artist.id))
+//                if(body.artists) {
+//                     last = `&after=${body.artists.items[body.artists.items.length-1].id}`
+//                     body.artists.items.forEach((artist) => ids.push(artist.id))
+//                     app.get('/data', (req, res, next) => {
+//                         try {
+//                             res.send(ids)
 
-                    app.get('/data', (req, res, next) => {
-                        try {
-                            res.send(ids)
-                        } catch(err) {
-                            console.log(err)
-                        }
-                        // try {
-                        //     ids.forEach((id) =>  {
-                        //         console.log(id)
-                        //         spotifyApi.setAccessToken(access_token)
-                        //         spotifyApi.getArtistAlbums(id, { limit: 5, include_groups: 'single', market: 'US' }).then(
-                                    
-                        // function(data) {
-                            
-                        //     res.send('hi')
-                        // },
-                        // function(err) {
-                        //     console.error(err);
-                        // }
-                        // )
-                        // });
-                        // } catch(err) {
-                        //     console.log(err, 'the error is in data')
-                        // }
-                    })
+//                         } catch(err) {
+//                             console.log(err)
+//                         }
 
-}
+                        
+//                     })
+//                     // console.log(body.artists.items[body.artists.items.length-1])
+// }           
         
-        })
-            offset+=50
-            length-=50
-        }
+//         })
+            
+            
+//             length-=50
+//             offset+=50
+//         }
         //    body.artists.items.forEach((artist) => console.log(artist.name, artist.uri.split(':')[2]))
            
-           
-
-
-           
-      });
+        
 
       app.get('/access', (req, res) => {
         try {

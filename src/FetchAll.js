@@ -2,20 +2,8 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const FetchAll = (props) => {
-    const {ids} = props
+    const {ids, token, total} = props
     const [tracks, setTracks] = useState([])
-    const [token, setToken] = useState('')
-    useEffect(() => {
-        const fetchToken = async () => {
-                try {
-                    const {data} = await axios.get('/access')
-                    setToken(data)
-            } catch(err) {
-                console.log(err)
-            }
-        }
-        fetchToken()
-    }, [])
 
     useEffect(() => {
         const fetchTracks = async (id) => {
@@ -35,7 +23,7 @@ const FetchAll = (props) => {
         ids.forEach((id) => fetchTracks(id))
     }, [token, ids])
 
-    if(tracks.length === ids.length ) console.log(tracks)
+    // if(tracks.length === ids.length ) console.log(tracks)
 
     return (
         <div>from fetchTracks</div>
