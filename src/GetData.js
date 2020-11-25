@@ -10,9 +10,7 @@ const GetData = () => {
     const [currCall, setCur] = useState([])
     const [total, setTotal] = useState(0)
     const [count, setCount] = useState(0)
-    const [len, setLen] = useState(0)
-
-    let isRendered = useRef(false)
+    const [len, setLen] = useState([])
 
     useEffect(() => {
         const fetchToken = async () => {
@@ -42,7 +40,7 @@ const GetData = () => {
                 setLast(`&after=${currCall[currCall.length-1]}`)
                 setCount(count + 1)
                 setTotal(data.artists.total)
-                setLen(data.artists.items.length)
+                setLen(prev => Number(data.artists.items.length) + Number(prev))
         }
         } catch(err) {
             console.log(err)
@@ -55,7 +53,8 @@ const GetData = () => {
     return (
         <div>
             Test
-       { total !== 0 && count === Math.ceil(total / 50) && idData.length === total && !last.includes('undefined') ? <FetchAll ids={idData} token={token} total={total}/> : <div>Loading</div>}
+
+       { idData.length === len? <FetchAll ids={idData} token={token} total={total}/> : <div>Loading</div>}
         </div>
     )
 }
