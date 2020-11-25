@@ -6,7 +6,7 @@ class App extends Component{
   render(){
     return(
       <div className="App">
-        <h1> Hello, World! </h1>
+        <h1> Most recent tracks by Artists you follow</h1>
         <GetData />
       </div>
     );
