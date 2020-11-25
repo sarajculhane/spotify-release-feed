@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
+import Tracks from './Tracks'
 
 const FetchAll = (props) => {
     const {ids, token, total} = props
@@ -8,10 +9,11 @@ const FetchAll = (props) => {
 
 
 
+
+
     useEffect(() => {
         let mounted = false
         const fetchTracks = async (id) => {
-            
                 try {
                     
                     if(token && total !== 0) {
@@ -38,16 +40,17 @@ const FetchAll = (props) => {
         return () => {
             mounted  = true
         }
-       
-    }, [token, ids]) 
+        
+    }, []) 
 
-   if(tracks.length === newTotal && tracks.length > 0) console.log(tracks)
-
+    
+//    if(tracks.length === newTotal && tracks.length > 0) console.log(tracks)
     return (
         <div>
-            hi there
+         {tracks.length === newTotal && tracks.length > 0 ? <Tracks tracks={tracks} /> : <div></div>}
         </div>
+
     )
 }
 
-export default FetchAll
+export default FetchAll;
