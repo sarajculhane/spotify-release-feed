@@ -59,9 +59,9 @@ const Login = () => {
     {console.log(token, user)}
 
           {status === 'loggedin' ? <div>
-                  {token}
+                  {/* {token}
                   {refresh_token}
-                  {user.email}
+                  {user.email} */}
                   <GetData token={token} />
                   </div> : 
                   

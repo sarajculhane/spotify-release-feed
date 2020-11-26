@@ -1,14 +1,20 @@
 body {
     background-color: whitesmoke;
-    display: flex;
-    width: 80%;
+    margin: auto;
+    font-family: sans-serif;
+    
+}
+
+.app {
+    margin: auto;
+    width: 50%;
     
 }
 
 
-
 .track-list {
-    background: lightblue;
+    /* background: lightblue; */
+    padding-bottom: 0.5em;
 
 
 }
@@ -18,13 +24,36 @@ body {
     flex-wrap: wrap;
     flex-direction:row;
     justify-content: flex-start;
+    border-radius: 0.25em;
     border: solid 0.5px grey;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    align-content: space-between;
+   
     
     /* justify-items: flex-start; */
 
 }
 
 .track-info {
-    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.name {
+    display: flex;
+    width: 20rem;
+    
+}
+ .song {
+    display: flex;
+    
+}
+
+.release {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     
 }

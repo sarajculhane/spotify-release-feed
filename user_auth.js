@@ -106,16 +106,6 @@ app.get('/callback', function(req, res) {
         //  console.log(body);
        });
            
-        
-
-      app.get('/access', (req, res) => {
-        try {
-            res.send(access_token)
-        } catch(err) {
-            console.log(err)
-        }
-    })
-
 
        // we can also pass the token to the browser to make requests from there
        res.redirect('/#' +
