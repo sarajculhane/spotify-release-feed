@@ -51,8 +51,7 @@ const GetData = () => {
         
     }, [token,last])
     return (
-        <div>
-            Test
+        <div className='data'>
 
        { idData.length === len? <FetchAll ids={idData} token={token} total={total}/> : <div></div>}
         </div>

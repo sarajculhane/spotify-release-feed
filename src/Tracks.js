@@ -6,9 +6,9 @@ const Tracks = (props) => {
     const allTracks = []
 
     tracks.forEach((track) => allTracks.push(...track))
-    console.log(allTracks[0].release_date)
+
     allTracks.sort((a, b) => b.release_date > a.release_date ? 1 : -1)
-    console.log(allTracks[0].release_date)
+
 
 
     

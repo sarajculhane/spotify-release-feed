@@ -100,54 +100,11 @@ app.get('/callback', function(req, res) {
          headers: { 'Authorization': 'Bearer ' + access_token },
          json: true
        };
-       var optionsTwo = {
-        url: 'https://api.spotify.com/v1/me/following?type=artist&limit=50',
-        headers: { 'Authorization': 'Bearer ' + access_token },
-        json: true
-      };
-
 
        // use the access token to access the Spotify Web API
        request.get(options, function(error, response, body) {
         //  console.log(body);
        });
-//        var offset = 0
-
-        
-//         const ids = []
-//         let length = 400
-        
-//         while(length > 0 ) {
-//             console.log(last)
-//            request.get({
-//             url: `https://api.spotify.com/v1/me/following?type=artist&limit=10${last}`,
-//             headers: { 'Authorization': 'Bearer ' + access_token },
-//             json: true
-//           }, function(error, response, body) {
-//             // body.artists.items.forEach((artist) => console.log(artist.id))
-//                if(body.artists) {
-//                     last = `&after=${body.artists.items[body.artists.items.length-1].id}`
-//                     body.artists.items.forEach((artist) => ids.push(artist.id))
-//                     app.get('/data', (req, res, next) => {
-//                         try {
-//                             res.send(ids)
-
-//                         } catch(err) {
-//                             console.log(err)
-//                         }
-
-                        
-//                     })
-//                     // console.log(body.artists.items[body.artists.items.length-1])
-// }           
-        
-//         })
-            
-            
-//             length-=50
-//             offset+=50
-//         }
-        //    body.artists.items.forEach((artist) => console.log(artist.name, artist.uri.split(':')[2]))
            
         
 

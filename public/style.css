@@ -1,0 +1,30 @@
+body {
+    background-color: whitesmoke;
+    display: flex;
+    width: 80%;
+    
+}
+
+
+
+.track-list {
+    background: lightblue;
+
+
+}
+
+.single-track {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: flex-start;
+    border: solid 0.5px grey;
+    
+    /* justify-items: flex-start; */
+
+}
+
+.track-info {
+    margin-right: 10px;
+    
+}
