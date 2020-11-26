@@ -43,9 +43,7 @@ const FetchAll = (props) => {
         
     }, []) 
 
-    
-//    if(tracks.length === newTotal && tracks.length > 0) console.log(tracks)
-    return (
+        return (
         <div className="track-list">
          {tracks.length === newTotal && tracks.length > 0 ? <Tracks tracks={tracks} /> : <div></div>}
         </div>

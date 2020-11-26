@@ -1,22 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-
-    //       document.getElementById('obtain-new-token').addEventListener('click', function() {
-    //         $.ajax({
-    //           url: '/refresh_token',
-    //           data: {
-    //             'refresh_token': refresh_token
-    //           }
-    //         }).done(function(data) {
-    //           access_token = data.access_token;
-    //           oauthPlaceholder.innerHTML = oauthTemplate({
-    //             access_token: access_token,
-    //             refresh_token: refresh_token
-    //           });
-    //         });
-    //       }, false);
-    //     }
-    //   })();
+import GetData from './GetData'
 
 const Login = () => {
         function getHashParams() {
@@ -78,12 +62,11 @@ const Login = () => {
                   {token}
                   {refresh_token}
                   {user.email}
+                  <GetData token={token} />
                   </div> : 
                   
                   <div>Please login
                   <a href="/login" className="btn btn-primary">Log in with Spotify</a></div>}
-        {/* {success ? <div id="loggedin">log
-        <button onClick={handleClick}>Get new refresh_token</button></div> : <div id="login">login</div>} */}
         
         </div>
     

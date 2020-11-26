@@ -2,28 +2,17 @@ import React, {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
 import FetchAll from './FetchAll'
 
-const GetData = () => {
+const GetData = (props) => {
 
     const [idData, setData] = useState([])
-    const [token, setToken] = useState('')
+    // const [token, setToken] = useState('')
     const [last, setLast] = useState('')
     const [currCall, setCur] = useState([])
     const [total, setTotal] = useState(0)
     const [count, setCount] = useState(0)
     const [len, setLen] = useState([])
 
-    useEffect(() => {
-        const fetchToken = async () => {
-                try {
-                    const {data} = await axios.get('/access')
-                    setToken(data)
-            } catch(err) {
-                console.log(err)
-            }
-        }
-        fetchToken()
-    })
-
+    const {token} = props
     useEffect(() => {
         const fetchArtists = async () => {
         
