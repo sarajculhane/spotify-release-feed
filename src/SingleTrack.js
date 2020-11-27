@@ -10,9 +10,9 @@ const SingleTrack = (props) => {
                 <div className='track-info release'>{track.release_date}</div>
             </div>
             <div className='details-right'> 
-                <div className='track-info song'>{track.name}</div>
-                <div className='track-info artist'>{track.artists[0].name}</div>
-                {track.artists.slice(1).map((artist) => <div className='track-info artist'>{artist.name}</div>)}
+                <a href={track.external_urls.spotify} className='link'><div className='track-info song'>{track.name}</div></a>
+                <div className='track-info artist'><a href={track.artists[0].external_urls.spotify} className='link'>{track.artists[0].name}</a></div>
+                {track.artists.slice(1).map((artist) => <div className='track-info artist'><a href={artist.external_urls.spotify} className='link'>{artist.name}</a></div>)}
             </div>
             
         </div>

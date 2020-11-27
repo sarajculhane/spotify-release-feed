@@ -5,6 +5,8 @@ body {
     
 }
 
+
+
 .app {
     margin: auto;
     width: 50%;
@@ -25,35 +27,59 @@ body {
     flex-direction:row;
     justify-content: flex-start;
     border-radius: 0.25em;
-    border: solid 0.5px grey;
+    border: solid 5px lightgrey;
     padding: 0.5em;
     margin-bottom: 0.5em;
     align-content: space-between;
-   
-    
-    /* justify-items: flex-start; */
 
 }
 
+.details-left {
+    margin-right: 1em;
+}
+
+.details-right {
+    margin-left: 1em;
+}
+
+
+
+
 .track-info {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
 }
 .name {
     display: flex;
-    width: 20rem;
-    
+    width: 15rem;
 }
  .song {
     display: flex;
+    font-weight: 900;
     
 }
 
-.release {
-    width: 20rem;
+.release, .img {
+    width: 15rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     
 }
+
+
+.link {
+    color: grey;
+    
+}
+
+.link:hover {
+    color: steelblue;
+    text-decoration: none;
+}
+
+.link:active {
+    text-decoration: none;
+  }
+
