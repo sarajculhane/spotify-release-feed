@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import GetData from './GetData'
+import Nav from './Nav'
 
 const Login = () => {
         function getHashParams() {
@@ -33,6 +34,7 @@ const Login = () => {
                     setUser(data)
                 } catch(err) {
                     console.log(error, 'the axios err')
+                    setUser(null)
                 }
             }
             getUser(access_token)
@@ -56,17 +58,18 @@ const Login = () => {
            
             
           <div>
-    {console.log(token, user)}
-
+              <Nav user={user}/>
           {status === 'loggedin' ? <div>
-                  {/* {token}
-                  {refresh_token}
-                  {user.email} */}
+                
                   <GetData token={token} />
                   </div> : 
                   
-                  <div>Please login
-                  <a href="/login" className="btn btn-primary">Log in with Spotify</a></div>}
+                  <div className='login-redirect'>
+                      <div className='login-detail'>
+                         <p className='login-text'> Please login with your Spotify credientals to see all new releases from artists you follow </p>
+                  <a href="/login" className="button-redir">Log in with <i class="fa fa-spotify" aria-hidden="true"></i>
+Spotify </a></div>
+                  </div>}
         
         </div>
     
