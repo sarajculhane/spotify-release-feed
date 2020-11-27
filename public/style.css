@@ -13,6 +13,38 @@ body {
     
 }
 
+.main-nav {
+    width: 100%;
+    background-color: lightblue;
+    margin-bottom: 0.8em;
+    height: 4em;
+    color: whitesmoke;
+    border-radius: .25em;
+    border-bottom: solid 1px lightgray;
+    box-shadow: 1px 1px 3px lightgray;
+}
+
+.left-text {
+    text-align: left;
+    margin-left: 1em;
+    padding: 1em;
+    font-weight: 2000;
+    font-size: 20px;
+    text-shadow: 1px 2px 3px lightgrey;
+    
+}
+
+/* .right-text {
+    text-align: right;
+    margin-right: 1em;
+    padding: 1em;
+    font-weight: 2000;
+    font-size: 20px;
+    text-shadow: 1px 2px 3px lightgrey;
+    
+} */
+
+
 
 .track-list {
     /* background: lightblue; */
