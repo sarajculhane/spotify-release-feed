@@ -22,27 +22,39 @@ body {
     border-radius: .25em;
     border-bottom: solid 1px lightgray;
     box-shadow: 1px 1px 3px lightgray;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.text {
+    display: flex;
+    justify-content: space-between;
 }
 
 .left-text {
     text-align: left;
-    margin-left: 1em;
-    padding: 1em;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    padding: 15px;
     font-weight: 2000;
     font-size: 20px;
     text-shadow: 1px 2px 3px lightgrey;
     
 }
 
-/* .right-text {
+.right-text {
     text-align: right;
-    margin-right: 1em;
-    padding: 1em;
+    margin-right: 4rem;
+    margin-top: 1rem;
+    /* margin-left: 40rem; */
+    padding: 15px;
     font-weight: 2000;
     font-size: 20px;
     text-shadow: 1px 2px 3px lightgrey;
     
-} */
+}
 
 
 
