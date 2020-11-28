@@ -67,7 +67,7 @@ const Login = () => {
                   <div className='login-redirect'>
                       <div className='login-detail'>
                          <p className='login-text'> Please login with your Spotify credientals to see all new releases from artists you follow </p>
-                  <a href="/login" className="button-redir">Log in with <i class="fa fa-spotify" aria-hidden="true"></i>
+                  <a href="/login" className="button-redir">Log in with <i className="fa fa-spotify" aria-hidden="true"></i>
 Spotify </a></div>
                   </div>}
         
