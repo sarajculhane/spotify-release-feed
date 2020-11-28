@@ -57,12 +57,18 @@ a.button-redir, .button-main {
     /* width: 50%; */
 }
 
-div.button-main {
-    padding: 3px;
+.button-main {
+    font-size:14px;
 }
 
-a.button-redir:hover {
+div.button-main {
+    padding: 5px;
+}
+
+
+a.button-redir:hover, div.button-main:hover {
     text-decoration: underline;
+    background-color: rgb(146, 171, 199);
 }
 
 .search-bar {
@@ -70,7 +76,45 @@ a.button-redir:hover {
     flex-wrap: wrap;
     flex-direction: row;
     width: 40%;
+    margin-left: 10px;
 }
+
+.search-form {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    align-content: space-between;
+    border: solid 1px lightgray;
+    padding: 5px;
+    background-image:  linear-gradient(to top, rgb(238, 235, 235), rgb(255, 255, 255));
+    opacity: 80%;
+    border-radius: 0.25em;
+}
+
+.filter-menu {
+    margin-right:10px;
+}
+.filter-menu select{
+    font-size: 12px;
+    text-align: center;
+    border: none;
+    width: 100%;
+    background: lightgrey;
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: .25em;
+    padding: 5px;
+  }
+
+.filter-menu {
+    margin-left: 10px;
+}
+
+
 
 
 .main-nav {
@@ -117,14 +161,25 @@ a.button-redir:hover {
 
 .search {
 
-    height: 2.5em;
+    padding: 5px;
     border-radius: .25em;
     border: solid 2px lightgrey;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+    margin-right: 10px;
     text-indent: 2px;
+    color: lightslategray;
 }
 
+.search:focus, 
+.filter-menu select:focus {
+    border-radius: .25em;
+    outline: none;
+    border: solid 2px slategrey;
+}
 
+option {
+    font-weight: bold;
+}
 
 .search-bar {
     margin-left: 100px;
