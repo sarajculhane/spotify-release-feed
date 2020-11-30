@@ -1,14 +1,13 @@
 import React, {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
 import Tracks from './Tracks'
-import Search from './Search'
 
 const FetchAll = (props) => {
     const {ids, token, total} = props
     const [tracks, setTracks] = useState([])
     const [newTotal, setNewTotal] = useState(0)
 
-
+    console.log(props)
 
 
 
@@ -46,7 +45,7 @@ const FetchAll = (props) => {
 
         return (
             <div>
-            <div className='search-bar'> <Search /> </div>
+            {/* <div className='search-bar'> <Search /> </div> */}
         <div className="track-list">
          {tracks.length === newTotal && tracks.length > 0 ? <Tracks tracks={tracks} /> : <div></div>}
         </div>

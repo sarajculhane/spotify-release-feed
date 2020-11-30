@@ -5,7 +5,7 @@ const SingleTrack = (props) => {
 
     return (
         <div className='single-track'>
-            <div className='details-left'>
+        <div> <div className='details-left'>
                 <div className='track-info img'><img src={track.images[2].url}/></div>
                 <div className='track-info release'>{track.release_date}</div>
             </div>
@@ -14,7 +14,8 @@ const SingleTrack = (props) => {
 </a>
                 <div className='track-info artist'><a href={track.artists[0].external_urls.spotify} className='link'>{track.artists[0].name}</a></div>
                 {track.artists.slice(1).map((artist, i) => <div className='track-info artist' key={i}><a href={artist.external_urls.spotify} className='link'>{artist.name}</a></div>)}
-            </div>
+    </div>
+    </div> 
             
         </div>
     )

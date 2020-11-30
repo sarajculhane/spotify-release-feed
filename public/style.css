@@ -159,6 +159,10 @@ a.button-redir:hover, div.button-main:hover {
     
 }
 
+.search-container {
+    width: 40%;
+    margin-left: 10px;
+}
 .search {
 
     padding: 5px;
