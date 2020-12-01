@@ -1,4 +1,6 @@
 node_modules
 .DS_Store
-public/dist
+bundle.js
+public/dist/
+public/font-awesome/
 public/font-awesome
