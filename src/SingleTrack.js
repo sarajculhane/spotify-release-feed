@@ -2,7 +2,7 @@ import React from 'react'
 
 const SingleTrack = (props) => {
     const {track} = props
-
+    console.log(track)
     return (
         <div className='single-track'>
         <div> <div className='details-left'>

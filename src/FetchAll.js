@@ -7,8 +7,6 @@ const FetchAll = (props) => {
     const [tracks, setTracks] = useState([])
     const [newTotal, setNewTotal] = useState(0)
 
-    console.log(props)
-
 
 
     useEffect(() => {
@@ -47,7 +45,7 @@ const FetchAll = (props) => {
             <div>
             {/* <div className='search-bar'> <Search /> </div> */}
         <div className="track-list">
-         {tracks.length === newTotal && tracks.length > 0 ? <Tracks tracks={tracks} /> : <div></div>}
+         {tracks.length === newTotal && tracks.length > 0 ? <Tracks tracks={tracks} token={token} /> : <div></div>}
         </div>
         </div>
 

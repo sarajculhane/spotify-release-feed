@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import SingleTrack from './SingleTrack'
 
 const Tracks = (props) => {
-    const {tracks} = props
+    const {tracks, token} = props
     const allTracks = []
 
     tracks.forEach((track) => allTracks.push(...track))
@@ -14,7 +14,7 @@ const Tracks = (props) => {
     
     return (
         <div>
-            {allTracks.map((track, i) => <SingleTrack key={i} track={track}/>)}
+            {allTracks.map((track, i) => <SingleTrack key={i} track={track} token={token}/>)}
         </div>
     )
 }
