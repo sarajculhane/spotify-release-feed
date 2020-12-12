@@ -270,7 +270,7 @@ option {
 
   .track-header {
       display: flex;
-      padding: 1em 17em 1em 17em;
+      padding: 1em 100px 1em 100px;
       margin: auto;
       margin-bottom: 1em;
       color: darkgrey;
