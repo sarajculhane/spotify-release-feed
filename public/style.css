@@ -206,7 +206,7 @@ option {
     flex-wrap: wrap;
     flex-direction:row;
     justify-content: flex-start;
-    border-radius: 0.25em;
+    border-radius: 0.5em;
     border: solid 5px lightgrey;
     padding: 0.5em;
     margin-bottom: 0.5em;
@@ -215,6 +215,7 @@ option {
 }
 
 .details-left {
+    
     margin-right: 1em;
 }
 
@@ -263,3 +264,21 @@ option {
     text-decoration: none;
   }
 
+  .track-container {
+      display: flex;
+  }
+
+  .track-header {
+      display: flex;
+      padding: 1em 17em 1em 17em;
+      margin: auto;
+      margin-bottom: 1em;
+      color: darkgrey;
+      border: 2px solid lightgrey;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 0.5em;
+  }

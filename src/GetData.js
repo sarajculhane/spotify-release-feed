@@ -11,6 +11,9 @@ const GetData = (props) => {
     const [total, setTotal] = useState(0)
     const [count, setCount] = useState(0)
     const [len, setLen] = useState([])
+    const [date, setDate] = useState('')
+    const curDate = new Date(Date.now())
+
 
     const {token} = props
     useEffect(() => {
@@ -30,6 +33,7 @@ const GetData = (props) => {
                 setCount(count + 1)
                 setTotal(data.artists.total)
                 setLen(prev => Number(data.artists.items.length) + Number(prev))
+                
         }
         } catch(err) {
             console.log(err)
@@ -37,11 +41,14 @@ const GetData = (props) => {
         }
         
         fetchArtists()
-        
+        setDate(curDate)
     }, [token,last])
     return (
+        
         <div className='data'>
-
+            <div className='track-container'>
+                <div className='track-header'>Your followed artists' most recent releases as of {date.toLocaleString().split(',')[0]}</div>
+            </div>
        { idData.length === len? <FetchAll ids={idData} token={token} total={total}/> : <div></div>}
         </div>
     )

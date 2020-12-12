@@ -18,6 +18,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
+    "history": "^5.0.0",
     "querystring": "^0.2.0",
     "react-hot-loader": "^4.13.0",
     "react-router-dom": "^5.2.0",
