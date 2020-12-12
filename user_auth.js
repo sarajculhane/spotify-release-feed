@@ -1,21 +1,13 @@
-var express = require('express'); // Express web server framework
-var request = require('request'); // "Request" library
-var cors = require('cors');
-var querystring = require('querystring');
-var cookieParser = require('cookie-parser');
-var SpotifyWebApi = require('spotify-web-api-node');
+const express = require('express'); // Express web server framework
+const request = require('request'); // "Request" library
+const cors = require('cors');
+const querystring = require('querystring');
+const cookieParser = require('cookie-parser');
+const {client_id, client_secret} = require('./secrets')
 
+ // Your secret
+const redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
-var client_id = 'b1dd47b15c6443f3ac8af7dcd8947d93'; // Your client id
-var client_secret = '09f80ef7a0c442729726750eff49358a'; // Your secret
-var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
-
-var spotifyApi = new SpotifyWebApi({
-    clientId: 'b1dd47b15c6443f3ac8af7dcd8947d93',
-    clientSecret: '09f80ef7a0c442729726750eff49358a',
-    redirectUri: 'http://localhost:8888/callback'
-  });
-  let last = 'test'
 /**
 * Generates a random string containing numbers and letters
 * @param  {number} length The length of the string
