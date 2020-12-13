@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const {client_id, client_secret} = require('./secrets')
 
  // Your secret
-const redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+const redirect_uri = 'https://spotify-release.herokuapp.com/callback'; // Your redirect uri
 
 /**
 * Generates a random string containing numbers and letters
