@@ -1,14 +1,16 @@
 {
   "name": "spot-api",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node user_auth.js",
+    "start": "webpack",
     "build-watch": "webpack -w",
     "deploy": "deploy",
-    "build": "webpack -p",
     "heroku-postbuild": "webpack --config webpack.prod.js"
   },
   "keywords": [],
