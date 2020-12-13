@@ -15,7 +15,7 @@ git checkout -b deploy
 webpack -p
 
 
-git add -f public/bundle.js public/bundle.js.map secrets.js
+git add -f public/dist/bundle.js secrets.js
 
 git commit --allow-empty -m 'Deploying'
 

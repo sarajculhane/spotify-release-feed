@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack",
+    "start": "node user_auth.js",
     "build-watch": "webpack -w",
-    "deploy": "deploy"
+    "deploy": "deploy",
+    "build": "webpack -p",
+    "heroku-postbuild": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@webpack-cli/init": "^1.0.3",
     "axios": "^0.21.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
