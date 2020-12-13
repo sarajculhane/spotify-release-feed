@@ -1,6 +1,10 @@
 # Spotify New Release Feed (Work in Progress)
 
+Production Instance : https://spotify-release.herokuapp.com/
+
 ## About the App
+
+
 
 While Spotify has many complex and highly effective recommendation methods and provides users with some release updates via it's curated playlists, it does not have a full feed of new releases based on a user's followed artists. Thus, this application utilizes the Spotify Web API (see https://developer.spotify.com/documentation/web-api/) for more info and documentation) to get an authorized user's followed artists and show a reverse choronology Release feed based on these artists. The following endpoints are currently utilized in this application:
 
