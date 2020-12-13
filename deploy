@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+
+function cleanup_at_exit {
+  # return to your master branch
+  git checkout master
+  
+  # remove the deploy branch
+  git branch -D deploy
+}
+trap cleanup_at_exit EXIT
+
+git checkout -b deploy
+
+webpack -p
+
+
+git add -f public/dist/bundle.js secrets.js
+
+git commit --allow-empty -m 'Deploying'
+
+git push --force heroku deploy:master

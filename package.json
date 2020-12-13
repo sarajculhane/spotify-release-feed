@@ -1,18 +1,24 @@
 {
   "name": "spot-api",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.x",
+    "npm": "6.14.4"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack",
-    "build-watch": "webpack -w"
+    "start": "node user_auth.js",
+    "build-watch": "webpack -w",
+    "deploy": "deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@webpack-cli/init": "^1.0.3",
     "axios": "^0.21.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
