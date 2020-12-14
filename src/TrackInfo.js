@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {withRouter} from 'react-router'
 
 
 
-const TrackInfo = (props) => {
+const TrackInfo = () => {
     // const {id} = props.match.params
-    const history = useHistory()
-    const token = history.location.hash.split('=').slice(1).join('').split('&refresh_token')[0]
-    const id = history.location.pathname.split('/')[1]
-    console.log(history)
-    const [trackInfo, setInfo] = useState({})
+    // const history = useHistory()
+    // const token = history.location.hash.split('=').slice(1).join('').split('&refresh_token')[0]
+    // const id = history.location.pathname.split('/')[1]
+    // console.log(id, 'hello')
+
+    // const [trackInfo, setInfo] = useState({})
 
     // useEffect(() => {
     //     const getTrackInfo = () =>  {
@@ -27,10 +28,10 @@ const TrackInfo = (props) => {
     // })
 
     return (
-    <div>
+    <div className='right-text'>
     hi
     </div>
     )
 }
 
-export default TrackInfo;
+export default withRouter(TrackInfo);

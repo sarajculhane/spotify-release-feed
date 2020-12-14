@@ -6,9 +6,8 @@ import TrackInfo from './TrackInfo'
 const Routes = () => {
     return (<div>
         <Switch>
-        <Route exact path='/' component={Login} />
-        {/* <Route exact path='/tracks' component={Tracks} /> */}
-        <Route exact path='tracks/:id' component={TrackInfo} />
+            <Route exact path='/' component={Login} />
+            <Route path='/tracks' component={TrackInfo} />
         </Switch>
     </div>)
 }
