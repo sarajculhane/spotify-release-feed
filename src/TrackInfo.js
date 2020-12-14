@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import {withRouter} from 'react-router'
+import {withRouter, useHistory} from 'react-router'
 
 
 
-const TrackInfo = () => {
+const TrackInfo = (props) => {
     // const {id} = props.match.params
-    // const history = useHistory()
+    // const {token} =
+    // const { history, match } = props
     // const token = history.location.hash.split('=').slice(1).join('').split('&refresh_token')[0]
     // const id = history.location.pathname.split('/')[1]
-    // console.log(id, 'hello')
+    // console.log('props',props)
 
     // const [trackInfo, setInfo] = useState({})
 

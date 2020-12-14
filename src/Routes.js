@@ -7,7 +7,7 @@ const Routes = () => {
     return (<div>
         <Switch>
             <Route exact path='/' component={Login} />
-            <Route path='/tracks' component={TrackInfo} />
+            <Route path='/tracks/:id' component={TrackInfo} />
         </Switch>
     </div>)
 }
