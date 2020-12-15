@@ -5,9 +5,13 @@ import {useHistory, Link} from 'react-router-dom'
 const SingleTrack = (props) => {
     const {track, token} = props
     const [display, setDisplay] = useState(false)
+    const [target, setTarget] = useState(track.name)
 
     const displayInfo = () => {
         setDisplay(!display)
+        setTarget(track.name)
+        console.log(track.name)
+        // setTarget(e.target
     }
 
     return (
@@ -26,7 +30,7 @@ const SingleTrack = (props) => {
                     token
                 } }}>Get Info</Link> */}
 
-                {display ? <div><button onClick={displayInfo} className="button-redir">Close</button><TrackInfo track={track} token={token} /></div>: <button onClick={displayInfo} className="button-redir"><div>GetInfo</div></button>}
+                {display && track.name === target? <div><button onClick={displayInfo} className="button-redir" value='track'>Close</button><TrackInfo track={track} token={token} /></div>: <button onClick={displayInfo} className="button-redir" ><div>GetInfo</div></button>}
 
     </div> 
             

@@ -1,36 +1,53 @@
 import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import {withRouter, useHistory} from 'react-router'
 
 
 
 const TrackInfo = (props) => {
-    // const {id} = props.match.params
-    // const {token} =
-    // const { history, match } = props
-    // const token = history.location.hash.split('=').slice(1).join('').split('&refresh_token')[0]
-    // const id = history.location.pathname.split('/')[1]
-    // console.log('props',props)
+    const {track, token} = props
+    const id = track.id
 
-    // const [trackInfo, setInfo] = useState({})
+    const [trackInfo, setInfo] = useState({})
+    const [min, setMinutes] = useState('')
 
-    // useEffect(() => {
-    //     const getTrackInfo = () =>  {
-    //     try {
-    //         const {data} = await axios.get(`https://api.spotify.com/v1/albums/${id}/tracks`, {
-    //             headers: {
-    //             "Authorization": `Bearer ${token}`
-    //             }
-    //         })
-    //     } catch(err) {
-    //         console.log(err)
-    //     }
-    //     }
-    //     getTrackInfo()
-    // })
+    const getMin = (ms) => {
 
+        const min = Math.floor(( ms % (1000 * 60 * 60)) / (1000 * 60));
+        const second = Math.floor((ms % (1000 * 60)) / 100);
+
+        return `${min}:${second}`
+    }
+
+    useEffect(() => {
+        const getTrackInfo = async (id) =>  {
+        try {
+            const {data} = await axios.get(`https://api.spotify.com/v1/albums/${id}/tracks`, {
+                headers: {
+                "Authorization": `Bearer ${token}`
+                }
+            })
+            setInfo(data)
+            setMinutes(getMin(data.items[0].duration_ms))
+
+
+        } catch(err) {
+            console.log(err)
+        }
+        }
+        getTrackInfo(id)
+    },[track, token])
     return (
-    <div className='right-text'>
-    hi
+       
+    <div>
+    
+       {  Array.isArray(trackInfo.items) ? <div>
+        {console.log(trackInfo, Array.isArray(trackInfo.items))}
+       <div>Duration: {min} minutes</div>
+        {/* <div>Preview: <a href={trackInfo.items[0].preview_url} /></div>  */}
+        </div>: 
+            <div>Loading </div>
+    }
     </div>
     )
 }
