@@ -19,6 +19,7 @@ const SingleTrack = (props) => {
 
     return (
         <div className='single-track'>
+<div className='detail'>
   <div className='details-left'>
                 <div className='track-info img'><img src={track.images[2].url}/></div>
                 <div className='track-info release'>{track.release_date}</div>
@@ -33,13 +34,17 @@ const SingleTrack = (props) => {
                     token
                 } }}>Get Info</Link> */}
 
-                {display && track.name === target? <div>
-                    <button onClick={displayInfo}>Toggle Player</button><TrackInfo track={track} token={token} /></div>: <div>
-                <div><button onClick={displayInfo}>Toggle Player</button></div>
-                </div>}
-
     </div> 
-            
+
+
+
+                </div>
+                <div className='detail-two'>
+                {display && track.name === target?
+        <div className='details-player'><button className='button-main' onClick={displayInfo}>Close</button><TrackInfo track={track} token={token} /></div>: <div>
+                    <div className='details-player'><button className='button-main' onClick={displayInfo}>Track Preview</button></div>
+                </div>}  
+                </div>
         </div>
     )
 }

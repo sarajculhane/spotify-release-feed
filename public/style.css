@@ -205,24 +205,51 @@ option {
     display: flex;
     flex-wrap: wrap;
     flex-direction:row;
-    justify-content: flex-start;
     border-radius: 0.5em;
     border: solid 5px lightgrey;
     padding: 0.5em;
     margin-bottom: 0.5em;
+    justify-content: space-between;
+}
+
+.detail {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* border-radius: 0.5em;
+    border: solid 5px lightgrey; */
+    /* padding: 0.5em;
+    margin-bottom: 0.5em; */
     align-content: space-between;
 
+}
+
+.detail-two {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: flex-end;
 }
 
 .details-left {
     
     margin-right: 1em;
+    padding-right: 2em;
 }
 
 .details-right {
     margin-left: 1em;
+    margin-right: 1em;
+    padding-left: 2em;
 }
 
+.details-player {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: flex-end;
+}
 
 
 
