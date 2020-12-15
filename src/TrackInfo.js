@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {withRouter, useHistory} from 'react-router'
+import Player from './AudioPlayer'
 
 
 
@@ -44,7 +45,7 @@ const TrackInfo = (props) => {
        {  Array.isArray(trackInfo.items) ? <div>
         {console.log(trackInfo, Array.isArray(trackInfo.items))}
        <div>Duration: {min} minutes</div>
-        {/* <div>Preview: <a href={trackInfo.items[0].preview_url} /></div>  */}
+        <div><Player url={trackInfo.items[0].preview_url}/></div>
         </div>: 
             <div>Loading </div>
     }
