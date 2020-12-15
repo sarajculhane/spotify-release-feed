@@ -235,19 +235,19 @@ option {
 .details-left {
     
     margin-right: 1em;
-    padding-right: 2em;
+    padding-right: 1em;
 }
 
 .details-right {
     margin-left: 1em;
     margin-right: 1em;
-    padding-left: 2em;
 }
 
 .details-player {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
+    padding-right: 1em;
+    flex-direction: column;
     justify-content: flex-end;
 }
 
