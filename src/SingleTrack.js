@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import TrackInfo from './TrackInfo'
 import {useHistory, Link} from 'react-router-dom'
 import Player from './AudioPlayer'
+import AudioPlayer from "react-h5-audio-player";
+import 'react-h5-audio-player/lib/styles.css';
 
 const SingleTrack = (props) => {
     const {track, token} = props
@@ -31,8 +33,9 @@ const SingleTrack = (props) => {
                     token
                 } }}>Get Info</Link> */}
 
-                {display && track.name === target? <div><TrackInfo track={track} token={token} /></div>: <div>
-                <div><Player /></div>
+                {display && track.name === target? <div>
+                    <button onClick={displayInfo}>Toggle Player</button><TrackInfo track={track} token={token} /></div>: <div>
+                <div><button onClick={displayInfo}>Toggle Player</button></div>
                 </div>}
 
     </div> 
