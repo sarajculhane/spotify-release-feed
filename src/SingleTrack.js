@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import TrackInfo from './TrackInfo'
 import {useHistory, Link} from 'react-router-dom'
+import Player from './AudioPlayer'
 
 const SingleTrack = (props) => {
     const {track, token} = props
@@ -30,7 +31,9 @@ const SingleTrack = (props) => {
                     token
                 } }}>Get Info</Link> */}
 
-                {display && track.name === target? <div><button onClick={displayInfo} className="button-redir" value='track'>Close</button><TrackInfo track={track} token={token} /></div>: <button onClick={displayInfo} className="button-redir" ><div>GetInfo</div></button>}
+                {display && track.name === target? <div><TrackInfo track={track} token={token} /></div>: <div>
+                <div><Player /></div>
+                </div>}
 
     </div> 
             
