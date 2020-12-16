@@ -1,11 +1,14 @@
 
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 
 module.exports = {
   entry: "./src/index.js",
   module: {
     rules: [
+
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
@@ -14,8 +17,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader", 'sass-loader']
       }
+
     ]
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
@@ -25,9 +29,15 @@ module.exports = {
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
+    contentBase: path.join(__dirname, "public"),
     port: 8888,
     publicPath: "http://localhost:8888/"
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin(),
+  new HtmlWebpackPlugin({
+    template: "./public/index.html",
+    minify: { collapseWhitespace: true, removeComments: true },
+    inject: false
+  })],
+  devtool: "source-map"
 };

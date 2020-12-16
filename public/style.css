@@ -219,8 +219,8 @@ option {
     justify-content: flex-start;
     /* border-radius: 0.5em;
     border: solid 5px lightgrey; */
-    /* padding: 0.5em;
-    margin-bottom: 0.5em; */
+    padding: 0.5em;
+    margin-bottom: 0.5em;
     align-content: space-between;
 
 }

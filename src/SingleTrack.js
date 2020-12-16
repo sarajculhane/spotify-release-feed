@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import TrackInfo from './TrackInfo'
 import {useHistory, Link} from 'react-router-dom'
 import Player from './AudioPlayer'
@@ -6,16 +6,18 @@ import AudioPlayer from "react-h5-audio-player";
 import 'react-h5-audio-player/lib/styles.css';
 
 const SingleTrack = (props) => {
-    const {track, token} = props
+    const {track, token, searchTrack} = props
     const [display, setDisplay] = useState(false)
-    const [target, setTarget] = useState(track.name)
+    const [target, setTarget] = useState(track.name) || useState(searchTrack.name)
+
+    console.log(searchTrack)
 
     const displayInfo = () => {
         setDisplay(!display)
         setTarget(track.name)
-        console.log(track.name)
-        // setTarget(e.target
+
     }
+
 
     return (
         <div className='single-track'>
@@ -42,7 +44,7 @@ const SingleTrack = (props) => {
                 <div className='detail-two'>
                 {display && track.name === target?
         <div className='details-player'><button className='button-main' onClick={displayInfo}>Close</button><TrackInfo track={track} token={token} /></div>: <div>
-                    <div className='details-player'><button className='button-main' onClick={displayInfo}>Track Preview</button></div>
+                    <div className='details-player'><button className='button-main' onClick={displayInfo}>Preview</button></div>
                 </div>}  
                 </div>
         </div>

@@ -1,11 +1,11 @@
 import React, {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
 import FetchAll from './FetchAll'
+import Search from './Search'
 
 const GetData = (props) => {
 
     const [idData, setData] = useState([])
-    // const [token, setToken] = useState('')
     const [last, setLast] = useState('')
     const [currCall, setCur] = useState([])
     const [total, setTotal] = useState(0)
@@ -13,6 +13,7 @@ const GetData = (props) => {
     const [len, setLen] = useState([])
     const [date, setDate] = useState('')
     const curDate = new Date(Date.now())
+    
 
 
     const {token} = props
@@ -47,6 +48,7 @@ const GetData = (props) => {
         
         <div className='data'>
             <div className='track-container'>
+                {/* <Search /> */}
                 <div className='track-header'>Your followed artists' most recent releases as of {date.toLocaleString().split(',')[0]}</div>
             </div>
        { idData.length === len? <FetchAll ids={idData} token={token} total={total}/> : <div></div>}

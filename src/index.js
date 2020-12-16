@@ -6,6 +6,8 @@ import {BrowserRouter as Router}  from 'react-router-dom'
 import {createBrowserHistory, createMemoryHistory} from 'history'
 
 const history = createBrowserHistory({forceRefresh:true})
+// import '../public/styles.scss'
+
 
 ReactDOM.render(
 <Router history={history}>

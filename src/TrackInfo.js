@@ -47,7 +47,10 @@ const TrackInfo = (props) => {
        {  Array.isArray(trackInfo.items) ? <div>
         {console.log(trackInfo, Array.isArray(trackInfo.items))}
        <div>Full Duration: {min} minutes</div>
-        <div><Player url={trackInfo.items[0].preview_url}/></div>
+        <div>{
+           trackInfo.items[0].preview_url ?
+          <div> <Player url={trackInfo.items[0].preview_url}/></div> : <div>This track does not have a preview</div>
+       }</div>
         </div>: 
             <div>Loading </div>
     }

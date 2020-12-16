@@ -10,7 +10,7 @@ class App extends Component{
         <div>
             
         
-      <div className="app">
+      <div className='app'>
         <Routes />
       </div>
       </div>
