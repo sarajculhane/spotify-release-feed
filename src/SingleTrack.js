@@ -6,21 +6,27 @@ import AudioPlayer from "react-h5-audio-player";
 import 'react-h5-audio-player/lib/styles.css';
 
 const SingleTrack = (props) => {
-    const {track, token, searchTrack} = props
+    const {track, token, term} = props
+    console.log(props)
     const [display, setDisplay] = useState(false)
     const [target, setTarget] = useState(track.name) || useState(searchTrack.name)
+    const [searched, setSearched] = useState(false)
 
-    console.log(searchTrack)
+    console.log(props)
 
     const displayInfo = () => {
+        if(track.name.includes(term) || !term) {
         setDisplay(!display)
         setTarget(track.name)
 
-    }
+        }
+
+}
 
 
     return (
-        <div className='single-track'>
+    <div className='single-track'>
+    
 <div className='detail'>
   <div className='details-left'>
                 <div className='track-info img'><img src={track.images[2].url}/></div>
