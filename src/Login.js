@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import GetData from './GetData'
+import FetchArtists from './FetchArtists'
 import Nav from './Nav'
 
 const Login = () => {
@@ -61,7 +61,7 @@ const Login = () => {
               <Nav user={user}/>
           {status === 'loggedin' ? <div>
                 
-                  <GetData token={token} />
+                  <FetchArtists token={token} />
                   </div> : 
                   
                   <div className='login-redirect'>

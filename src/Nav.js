@@ -17,10 +17,6 @@ const Nav = (props) => {
 
         
     </div>
-    /* <div className='search-container'>
-        <Search />
-        </div>
-    </div> */
 
         
     )

@@ -15,11 +15,11 @@ While Spotify has many complex and highly effective recommendation methods and p
 
 Using these endpoints, the application renders the most recent tracks by all of the users artist in reverse chronological order.  Note that it is limited to the 3 most recent tracks/albums per artist.  
 
-Also note that sometimes the same track will appear multiple times if a user follows multiple artists who were on that specific track (eg. features, producers, etc).  This can be fixed and will be eventually but does not impact the functionality of the app substainsially.
+Also note that sometimes the same track will appear multiple times if a user follows multiple artists who were on that specific track (eg. features, producers, etc).  This can be fixed and will be eventually but does not impact the functionality of the app substansially.
 
 ## Technologies
 
-This app primarly utilizes an Express server (primarily obtain token for OAuth) and React/axios (fetches data from all other endpoints and renders).
+This app primarly utilizes an Express server (primarily to obtain token for OAuth) and React/axios (fetches data from all other endpoints and renders).
 
 ## Limitations & Possible Improvements
 
@@ -39,6 +39,10 @@ The Spotify API supports GraphQL and has strong documentation regarding how to u
 
 There are handful of simple and more involved UI improvements that I intend to make in the future, the most critical being providing a better user loading experience as well as allow the user to see track info.
 
+## Search Functionality
+
+Users should be able to search by artist or title once the data loads.
+
 ## Screenshots
 
 * The current UI is minimalist and built solely with plain CSS Flexbox and is fully responsive.  I will continued to update the UI as I improve other features but have intentionally opted out of using CSS Frameworks for the time being.
@@ -55,10 +59,10 @@ There are handful of simple and more involved UI improvements that I intend to m
 
 ## How to Run
 
-If you would like to try out this App for yourself, you will first need to obtain a `client_id` and `client_secret` from the Spotify Web Api and then add these credentials to the user off page.  Subsquently, you can run the following commands:
+If you would like to try out this App for yourself in a development environment, you will first need to obtain a `client_id` and `client_secret` from the Spotify Web Api and then add these credentials to the user off page.  Subsquently, you can run the following commands:
 
 ```
 npm install
 npm run build-watch
-node user_auth.js
+node run start
 ```

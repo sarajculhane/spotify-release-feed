@@ -6,22 +6,25 @@ import AudioPlayer from "react-h5-audio-player";
 import 'react-h5-audio-player/lib/styles.css';
 
 const SingleTrack = (props) => {
-    const {track, token, term} = props
-    console.log(props)
+    const {track, token, term, submitted} = props
     const [display, setDisplay] = useState(false)
-    const [target, setTarget] = useState(track.name) || useState(searchTrack.name)
+    const [target, setTarget] =  term ? useState(track.name) : useState(term)
     const [searched, setSearched] = useState(false)
 
-    console.log(props)
 
     const displayInfo = () => {
         if(track.name.includes(term) || !term) {
-        setDisplay(!display)
-        setTarget(track.name)
+            setDisplay(!display)
+            setTarget(track.name)
 
         }
 
-}
+    }
+// console.log(searched, submitted, track, term)
+    // useEffect(() => {
+    //     setSearched(true)
+    // }, [submitted])
+
 
 
     return (
@@ -38,9 +41,6 @@ const SingleTrack = (props) => {
                 <div className='track-info artist'><a href={track.artists[0].external_urls.spotify} className='link'>{track.artists[0].name}</a></div>
                 {track.artists.slice(1).map((artist, i) => <div className='track-info artist' key={i}><a href={artist.external_urls.spotify} className='link'>{artist.name}</a>
                 </div>)}
-                {/* <Link to={{pathname:`tracks/${track.id}`, state : {
-                    token
-                } }}>Get Info</Link> */}
 
     </div> 
 

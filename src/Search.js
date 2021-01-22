@@ -1,58 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import SingleTrack from './SingleTrack'
 import Tracks from './Tracks'
 
-// const Search = (props) => {
-
-//     const {tracks, token} = props
-//     const allTracks = []
-//     tracks.forEach((track) => allTracks.push(...track))
-
-
-//     allTracks.sort((a, b) => b.release_date > a.release_date ? 1 : -1)
-//     const [searchTerm, setTerm] = useState('')
-//     const [newTracks, setTracks] = useState([])
-//     const [submitted, setSubmitted] = useState(false)
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault()
-        
-//         setTerm(e.target.search.value)
-//         // console.log(tracks.map((track) => track.name), console.log(tracks.map((track) => track.name)).includes('hi'))
-//         // console.log(searchTerm, allTracks.map((track) => track.name),allTracks.map((track) => track.name).filter((name) => name.includes(searchTerm)))
-//         if(allTracks.map((track) => track.name).filter((name) => name.includes(searchTerm))) {
-//             setTracks(allTracks.filter((track) => track.name.includes(searchTerm)))
-            
-//         }
-//         setSubmitted(!submitted)
-//         e.target.search.value = ''
-        
-//     }
-
-//     return (
-//     <div>
-        // {/* <form className='search-form' onSubmit={handleSubmit}>
- 
-        //     <input type='text' className='search' name='search' />
-        //     <button className='button-main' type='submit'>Search</button>
-        //     </form> */}
-        //     {/* <div>
-        //     {submitted ? newTracks.map((track) => {
-
-                
-        //      <SingleTrack track={track} token={token}/> 
-        //     })
-        //       */}
-//             <div>{allTracks.map((track) => {
-
-                
-//                 <SingleTrack track={track} token={token}/> 
-//                })}</div>
-//                {/* </div> */}
-//                </div>
-
-//     )
-// }
 
 const Search = (props) => {
     let {tracks, token} = props
@@ -69,19 +18,27 @@ const Search = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // console.log(typeof e.target.search.value)
-        setTerm(e.target.search.value)
-        console.log(searchTerm)
+       
+        if(e.target.search.value !== '') {
+            setTerm(e.target.search.value)
+            
+            console.log(searchTerm ==='', e.target.search.value, searchTerm, submitted) 
+        
         // console.log(tracks.map((track) => track.name), console.log(tracks.map((track) => track.name)).includes('hi'))
         // console.log(searchTerm, allTracks.map((track) => track.name),allTracks.map((track) => track.name).filter((name) => name.includes(searchTerm)))
-        if(allTracks.map((track) => track.name).filter((name) => name.includes(searchTerm))) {
-            setTracks(allTracks.filter((track) => track.name.includes(searchTerm)))
+        if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(searchTerm.toLowerCase())) && searchTerm === e.target.search.value) {
+            setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(searchTerm.toLowerCase())))
+            setSubmitted(true)
+            console.log('success')
             
+            } 
+        }   else {
+                console.log('not a valid term')
+                setSubmitted(false)
         }
-        setSubmitted(!submitted)
-        // e.target.search.value = ''
-        // console.log(searchTerm)
+
     }
+
 
 
 

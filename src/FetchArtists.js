@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
-import FetchAll from './FetchAll'
+import FetchTracks from './FetchTracks'
 import Search from './Search'
 
 const GetData = (props) => {
@@ -51,7 +51,7 @@ const GetData = (props) => {
                 {/* <Search /> */}
                 <div className='track-header'>Your followed artists' most recent releases as of {date.toLocaleString().split(',')[0]}</div>
             </div>
-       { idData.length === len? <FetchAll ids={idData} token={token} total={total}/> : <div></div>}
+       { idData.length === len? <FetchTracks ids={idData} token={token} total={total}/> : <div></div>}
         </div>
     )
 }
