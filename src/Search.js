@@ -16,9 +16,6 @@ const Search = (props) => {
     const [submitted, setSubmitted] = useState(false)
 
 
-    // let includesFilt = allTracks.filter((track) => track.artists.map((artist) => artist.name).filter(name => name.includes('Alok')))
-    // console.log(artistNames, allTracks.filter((val, i) => artistNames.includes(i)))
-
     const handleSubmit = (e) => {
         e.preventDefault()
         let searched = e.target.search.value.toLowerCase()
@@ -28,15 +25,8 @@ const Search = (props) => {
         let songTitles = allTracks.map((track) => track.name.toLowerCase()).map((name , i) => {
             if(name.includes(searched)) return i
         }).filter((val) => typeof val === 'number')
-        console.log(artistNames, songTitles)
-        // if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(e.target.search.value.toLowerCase()))) {
-        //     setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(e.target.search.value.toLowerCase())))
-        //     setSubmitted(true)
-        //     console.log('success')
-            
-        //     }
-            if (allTracks.filter((val, i) => artistNames.concat(songTitles).includes(i))) {
-                // console.log(allTracks.filter((val, i) => artistNames.includes(i)))
+        if (allTracks.filter((val, i) => artistNames.concat(songTitles).includes(i))) {
+
                 setSubmitted(true)
                 setTracks(allTracks.filter((val, i) => artistNames.concat(songTitles).includes(i)))
             }
