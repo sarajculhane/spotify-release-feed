@@ -25,6 +25,7 @@ const Search = (props) => {
         let songTitles = allTracks.map((track) => track.name.toLowerCase()).map((name , i) => {
             if(name.includes(searched)) return i
         }).filter((val) => typeof val === 'number')
+
         if (allTracks.filter((val, i) => artistNames.concat(songTitles).includes(i))) {
 
                 setSubmitted(true)
@@ -50,9 +51,9 @@ const Search = (props) => {
             <button className='button-main' type='submit'>Search</button>
             </form>
             {
-            submitted ? newTracks.map((track, i) => <SingleTrack passing='hi' key={i} track={track} token={token} submitted={submitted}/>)
+            submitted ? newTracks.map((track, i) => <SingleTrack key={i} track={track} token={token} submitted={submitted}/>)
                     :
-                      allTracks.map((track, i) => <SingleTrack passing='hi' key={i} track={track} token={token} submitted={submitted}/>)}
+                      allTracks.map((track, i) => <SingleTrack key={i} track={track} token={token} submitted={submitted}/>)}
         </div>
     )
 }
