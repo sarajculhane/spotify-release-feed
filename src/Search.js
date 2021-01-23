@@ -1,16 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import SingleTrack from './SingleTrack'
-import Tracks from './Tracks'
 
 
 const Search = (props) => {
     let {tracks, token} = props
-    const allTracks = []
-
-
-    
+    let allTracks = []
     tracks.forEach((track) => allTracks.push(...track))
     allTracks.sort((a, b) => b.release_date > a.release_date ? 1 : -1)
+    allTracks = allTracks.filter((track) =>  new Date(track.release_date).getFullYear() === 2020 || new Date(track.release_date).getFullYear() === 2021)
     const [searchTerm, setTerm] = useState('')
     const [newTracks, setTracks] = useState([])
     const [submitted, setSubmitted] = useState(false)
