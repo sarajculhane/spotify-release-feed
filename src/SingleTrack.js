@@ -8,17 +8,13 @@ import 'react-h5-audio-player/lib/styles.css';
 const SingleTrack = (props) => {
     const {track, token, term, submitted} = props
     const [display, setDisplay] = useState(false)
-    const [target, setTarget] =  term ? useState(track.name) : useState(term)
+    const [target, setTarget] =  useState(track.name) 
     const [searched, setSearched] = useState(false)
 
 
     const displayInfo = () => {
-        if(track.name.includes(term) || !term) {
             setDisplay(!display)
             setTarget(track.name)
-
-        }
-
     }
 // console.log(searched, submitted, track, term)
     // useEffect(() => {

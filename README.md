@@ -41,7 +41,7 @@ There are handful of simple and more involved UI improvements that I intend to m
 
 ## Search Functionality
 
-Users should be able to search by artist or title once the data loads.
+Users should be able to search by artist or title once the data loads. I have started to work on this feature but am still working through some bugs (not in production but code thus far has been pushed to this repo).
 
 ## Screenshots
 
