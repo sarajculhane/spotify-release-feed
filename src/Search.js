@@ -7,35 +7,34 @@ const Search = (props) => {
     let allTracks = []
     tracks.forEach((track) => allTracks.push(...track))
     allTracks.sort((a, b) => b.release_date > a.release_date ? 1 : -1)
-    allTracks = allTracks.filter((track) =>  new Date(track.release_date).getFullYear() === 2020 || new Date(track.release_date).getFullYear() === 2021)
-    const [searchTerm, setTerm] = useState('')
+    
+    // Show either the 200 latest tracks or theose from Jan 2020 onward
+
+    allTracks = allTracks.length < 200 ? allTracks.filter((track) =>  new Date(track.release_date).getFullYear() === 2020 || new Date(track.release_date).getFullYear() === 2021) :
+    allTracks.slice(0,200)
+
     const [newTracks, setTracks] = useState([])
     const [submitted, setSubmitted] = useState(false)
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-       
-        if(e.target.search.value !== '') {
-            setTerm(e.target.search.value)
             
             console.log(searchTerm ==='', e.target.search.value, searchTerm, submitted) 
-        
-        // console.log(tracks.map((track) => track.name), console.log(tracks.map((track) => track.name)).includes('hi'))
-        // console.log(searchTerm, allTracks.map((track) => track.name),allTracks.map((track) => track.name).filter((name) => name.includes(searchTerm)))
-        if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(searchTerm.toLowerCase())) && searchTerm === e.target.search.value) {
-            setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(searchTerm.toLowerCase())))
+        if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(e.target.search.value.toLowerCase()))) {
+            setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(e.target.search.value.toLowerCase())))
             setSubmitted(true)
             console.log('success')
             
             } 
-        }   else {
+           else {
                 console.log('not a valid term')
                 setSubmitted(false)
         }
 
     }
 
+    
 
 
 
