@@ -12,15 +12,13 @@ const Search = (props) => {
 
     allTracks = allTracks.length < 200 ? allTracks.filter((track) =>  new Date(track.release_date).getFullYear() === 2020 || new Date(track.release_date).getFullYear() === 2021) :
     allTracks.slice(0,200)
-
     const [newTracks, setTracks] = useState([])
     const [submitted, setSubmitted] = useState(false)
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-            
-            console.log(searchTerm ==='', e.target.search.value, searchTerm, submitted) 
+
         if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(e.target.search.value.toLowerCase()))) {
             setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(e.target.search.value.toLowerCase())))
             setSubmitted(true)
@@ -47,9 +45,9 @@ const Search = (props) => {
             <button className='button-main' type='submit'>Search</button>
             </form>
             {
-            submitted ? newTracks.map((track, i) => <SingleTrack passing='hi' key={i} track={track} token={token} term={searchTerm} submitted={submitted}/>)
+            submitted ? newTracks.map((track, i) => <SingleTrack passing='hi' key={i} track={track} token={token} submitted={submitted}/>)
                     :
-                      allTracks.map((track, i) => <SingleTrack passing='hi' key={i} track={track} token={token} term={null}  submitted={submitted}/>)}
+                      allTracks.map((track, i) => <SingleTrack passing='hi' key={i} track={track} token={token} submitted={submitted}/>)}
         </div>
     )
 }
