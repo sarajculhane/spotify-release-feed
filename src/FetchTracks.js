@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
-import Tracks from './Tracks'
 import Search from './Search'
 
 const FetchAll = (props) => {

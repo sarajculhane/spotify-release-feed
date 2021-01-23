@@ -16,15 +16,27 @@ const Search = (props) => {
     const [submitted, setSubmitted] = useState(false)
 
 
+    // let includesFilt = allTracks.filter((track) => track.artists.map((artist) => artist.name).filter(name => name.includes('Alok')))
+    // console.log(artistNames, allTracks.filter((val, i) => artistNames.includes(i)))
+
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(e.target.search.value.toLowerCase()))) {
-            setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(e.target.search.value.toLowerCase())))
-            setSubmitted(true)
-            console.log('success')
+        let searched = e.target.search.value.toLowerCase()
+        let artistNames = allTracks.map((track) => track.artists.map((artist) => artist.name.toLowerCase()).filter(name => name.includes(searched))).map((val, i) =>  {
+            if(val.length) return i
+        }).filter((val) => typeof val === 'number')
+        console.log(artistNames)
+        // if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(e.target.search.value.toLowerCase()))) {
+        //     setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(e.target.search.value.toLowerCase())))
+        //     setSubmitted(true)
+        //     console.log('success')
             
-            } 
+        //     }
+            if (allTracks.filter((val, i) => artistNames.includes(i))) {
+                console.log(allTracks.filter((val, i) => artistNames.includes(i)))
+                setSubmitted(true)
+                setTracks(allTracks.filter((val, i) => artistNames.includes(i)))
+            }
            else {
                 console.log('not a valid term')
                 setSubmitted(false)
