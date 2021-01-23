@@ -25,17 +25,20 @@ const Search = (props) => {
         let artistNames = allTracks.map((track) => track.artists.map((artist) => artist.name.toLowerCase()).filter(name => name.includes(searched))).map((val, i) =>  {
             if(val.length) return i
         }).filter((val) => typeof val === 'number')
-        console.log(artistNames)
+        let songTitles = allTracks.map((track) => track.name.toLowerCase()).map((name , i) => {
+            if(name.includes(searched)) return i
+        }).filter((val) => typeof val === 'number')
+        console.log(artistNames, songTitles)
         // if(allTracks.map((track) => track.name.toLowerCase()).filter((name) => name.includes(e.target.search.value.toLowerCase()))) {
         //     setTracks(allTracks.filter((track) => track.name.toLowerCase().includes(e.target.search.value.toLowerCase())))
         //     setSubmitted(true)
         //     console.log('success')
             
         //     }
-            if (allTracks.filter((val, i) => artistNames.includes(i))) {
-                console.log(allTracks.filter((val, i) => artistNames.includes(i)))
+            if (allTracks.filter((val, i) => artistNames.concat(songTitles).includes(i))) {
+                // console.log(allTracks.filter((val, i) => artistNames.includes(i)))
                 setSubmitted(true)
-                setTracks(allTracks.filter((val, i) => artistNames.includes(i)))
+                setTracks(allTracks.filter((val, i) => artistNames.concat(songTitles).includes(i)))
             }
            else {
                 console.log('not a valid term')
