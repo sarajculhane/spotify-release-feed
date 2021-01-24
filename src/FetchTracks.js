@@ -43,8 +43,6 @@ const FetchAll = (props) => {
 
         return (
             <div>
-                
-            {/* <div className='search-bar'> <Search /> </div> */}
         <div className="track-list">
             
          {tracks.length === newTotal && tracks.length > 0 ? <Search tracks={tracks} token={token} /> : <div></div>}

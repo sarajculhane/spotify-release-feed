@@ -48,7 +48,6 @@ const Login = () => {
                                 "Authorization": `Bearer ${refresh_token}`
                               },
                         })
-                        console.log(data)
                     } catch(err) {
                         console.log(err, "click error")
                     }

@@ -8,7 +8,6 @@ return (<AudioPlayer
     src={url}
 
     onPlay={e => console.log('hi')}
-    // onCanPlay={() => displayInfo()}
   />
 );
 }

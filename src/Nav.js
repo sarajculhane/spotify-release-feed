@@ -3,7 +3,6 @@ import Search from './Search'
 const Nav = (props) => {
     const {user} = props
     return (
-    // <div className= 'full-nav'>
     <div className='main-nav'>
         <div className='text'>
       <div className='left-text'><p>newReleases <i className="fa fa-volume-up" aria-hidden="true"></i>

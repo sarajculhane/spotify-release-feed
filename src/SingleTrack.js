@@ -16,11 +16,6 @@ const SingleTrack = (props) => {
             setDisplay(!display)
             setTarget(track.name)
     }
-// console.log(searched, submitted, track, term)
-    // useEffect(() => {
-    //     setSearched(true)
-    // }, [submitted])
-
 
 
     return (

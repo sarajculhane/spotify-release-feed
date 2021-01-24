@@ -17,8 +17,6 @@ const TrackInfo = (props) => {
         const min = Math.floor(( ms % (1000 * 60 * 60)) / (1000 * 60));
         const second = (Math.floor((ms % (1000 * 60)) / 1000)/ 100).toFixed(2).toString().slice(2);
 
-        console.log(second)
-
         return `${min}:${second}`
     }
 
