@@ -2,8 +2,8 @@
 
 
 function cleanup_at_exit {
-  # return to your master branch
-  git checkout master
+  # return to main
+  git checkout main
   
   # remove the deploy branch
   git branch -D deploy

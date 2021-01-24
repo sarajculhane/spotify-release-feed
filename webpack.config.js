@@ -6,27 +6,35 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, "public/dist")
+  },
   module: {
     rules: [
-
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+       {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader", 'sass-loader']
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
       }
-
     ]
-  },
-  resolve: { extensions: ["*", ".js", ".jsx"] },
-  output: {
-    path: path.resolve(__dirname, "public/dist"),
-    publicPath: "public/dist/",
-    filename: "bundle.js"
   },
   devServer: {
     contentBase: path.join(__dirname, "public"),
