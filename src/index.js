@@ -7,6 +7,7 @@ import {createBrowserHistory, createMemoryHistory} from 'history'
 
 const history = createBrowserHistory({forceRefresh:true})
 // import '../public/styles.scss'
+import '../public/App.scss'
 
 
 ReactDOM.render(
