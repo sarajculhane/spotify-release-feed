@@ -60,8 +60,9 @@ const FetchArtists = (props) => {
         
         <div className='data'>
             <div className='track-container'>
-                {/* <Search /> */}
-                <div className='track-header'>Your followed artists' most recent releases as of {date.toLocaleString().split(',')[0]}</div>
+            <div className="alert alert-primary track-header" role="alert">
+            Your followed artists' most recent releases as of {date.toLocaleString().split(',')[0]}.
+</div>
             </div>
        { idData.length === len? <FetchTracks ids={idData} token={token} total={total}/> : <div></div>}
         </div>

@@ -194,10 +194,12 @@ option {
 
 .track-list {
     /* background: lightblue; */
+    display: flex;
     padding-bottom: 0.5em;
     margin: auto;
     width: 50%;
-
+    flex-wrap: wrap;
+    flex-direction: row;
 
 }
 
@@ -218,8 +220,6 @@ option {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
-    /* border-radius: 0.5em;
-    border: solid 5px lightgrey; */
     padding: 0.5em;
     margin-bottom: 0.5em;
     align-content: space-between;

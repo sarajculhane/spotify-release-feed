@@ -45,10 +45,13 @@ const Search = (props) => {
     
     return (
         <div>
-              <form className='search-form' onSubmit={handleSubmit}>
- 
+              <form className='search-form row g-2' onSubmit={handleSubmit}>
+              <div class="col-auto">
             <input type='text' className='search' name='search' />
-            <button className='button-main' type='submit'>Search</button>
+            </div>
+            <div class="col-auto">
+            <button className='btn btn-primary' type='submit'>Search</button>
+            </div>
             </form>
             {
             submitted ? newTracks.map((track, i) => <SingleTrack key={i} track={track} token={token} submitted={submitted}/>)
