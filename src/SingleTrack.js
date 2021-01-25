@@ -19,12 +19,12 @@ const SingleTrack = (props) => {
 
 
     return (
-    <div className='single-track'>
+    <div className='single-track card'>
     
-<div className='detail'>
+<div className='detail card-body'>
   <div className='details-left'>
-                <div className='track-info img'><img src={track.images[2].url}/></div>
-                <div className='track-info release'>{track.release_date}</div>
+                <div className='track-info img card-text'><img src={track.images[2].url}/></div>
+                <div className='track-info release card-text'>{track.release_date}</div>
             </div>
             <div className='details-right'> 
                 <a href={track.external_urls.spotify} className='link'><div className='track-info song'>{track.name}</div>
