@@ -194,12 +194,12 @@ option {
 
 .track-list {
     /* background: lightblue; */
-    display: flex;
+    /* display: flex; */
     padding-bottom: 0.5em;
     margin: auto;
     width: 50%;
-    flex-wrap: wrap;
-    flex-direction: row;
+    /* flex-wrap: wrap;
+    flex-direction: row; */
 
 }
 
@@ -266,6 +266,7 @@ option {
  .song {
     display: flex;
     font-weight: 900;
+    justify-content: space-between;
     
 }
 
