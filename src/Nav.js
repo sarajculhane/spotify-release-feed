@@ -1,5 +1,6 @@
 import React from 'react'
-import Search from './Search'
+import {Link} from 'react-router-dom'
+
 const Nav = (props) => {
     const {user} = props
     return (
@@ -9,7 +10,7 @@ const Nav = (props) => {
 </p></div>
 
 {user ? <div><div className='right-text'><p><i className="fa fa-user-circle-o" aria-hidden="true"></i>
-{user.display_name} </p></div></div>: <div className='right-text'><p><a href="/login" className="button-nav"> <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+<Link to={{ pathname: `/profile`, state: { user } }} className="button-nav">{`${user.display_name}`}</Link></p></div></div>: <div className='right-text'><p><a href="/login" className="button-nav"> <i className="fa fa-user-circle-o" aria-hidden="true"></i>
  Login</a></p></div>}
 
         </div>

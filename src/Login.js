@@ -57,7 +57,7 @@ const Login = () => {
            
             
           <div>
-              <Nav user={user}/>
+              <Nav user={user} toke={token}/>
           {status === 'loggedin' ? <div>
                 
                   <FetchArtists token={token} />

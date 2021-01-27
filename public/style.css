@@ -38,7 +38,7 @@ p.login-text {
    
 }
 
-a.button-nav {
+a.button-nav, Link.button-nav {
     color: whitesmoke;
 
 }
@@ -64,6 +64,7 @@ a.button-redir, .button-main {
 div.button-main {
     padding: 5px;
 }
+
 
 
 a.button-redir:hover, div.button-main:hover {
