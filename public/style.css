@@ -38,7 +38,7 @@ p.login-text {
    
 }
 
-a.button-nav {
+a.button-nav, Link.button-nav {
     color: whitesmoke;
 
 }
@@ -64,6 +64,7 @@ a.button-redir, .button-main {
 div.button-main {
     padding: 5px;
 }
+
 
 
 a.button-redir:hover, div.button-main:hover {
@@ -194,12 +195,12 @@ option {
 
 .track-list {
     /* background: lightblue; */
-    display: flex;
+    /* display: flex; */
     padding-bottom: 0.5em;
     margin: auto;
     width: 50%;
-    flex-wrap: wrap;
-    flex-direction: row;
+    /* flex-wrap: wrap;
+    flex-direction: row; */
 
 }
 
@@ -266,6 +267,7 @@ option {
  .song {
     display: flex;
     font-weight: 900;
+    justify-content: space-between;
     
 }
 
