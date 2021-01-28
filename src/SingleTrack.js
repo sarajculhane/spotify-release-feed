@@ -30,7 +30,7 @@ const SingleTrack = (props) => {
  <div className='single-track card'>
 
 <div>
-        <div className='track-info song card-header' style={{color: "darkgrey"}}>{track.name} <i class="fa fa-minus-square-o" aria-hidden="true" onClick={hideAllInfo}></i></div>
+        <div className='track-info song card-header' style={{color: "darkgrey"}} ><a href={track.external_urls.spotify} className='track-info'>{track.name} <i class="fa fa-minus-square-o" aria-hidden="true" onClick={hideAllInfo}></i></a></div>
     
 <div className='detail card-body'>
   <div className='details-left'>
@@ -39,8 +39,6 @@ const SingleTrack = (props) => {
                 <div className='track-info release card-text'>{track.release_date}</div>
             </div>
             <div className='details-right'> 
-                <a href={track.external_urls.spotify} className='link'>
-</a>
                 <div className='track-info artist'><a href={track.artists[0].external_urls.spotify} className='link'>{track.artists[0].name}</a></div>
                 {track.artists.slice(1).map((artist, i) => <div className='track-info artist' key={i}><a href={artist.external_urls.spotify} className='link'>{artist.name}</a>
                 </div>)}

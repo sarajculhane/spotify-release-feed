@@ -260,6 +260,10 @@ option {
     justify-content: flex-start;
     align-content: center;
 }
+
+a.track-info {
+    color: darkgray;
+}
 .name {
     display: flex;
     width: 15rem;
@@ -298,7 +302,7 @@ option {
       display: flex;
   }
 
-  .track-header {
+  .track-header{
       display: flex;
       padding: 1em 100px 1em 100px;
       margin: auto;
