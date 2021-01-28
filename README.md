@@ -65,6 +65,10 @@ The user profile is in the works but will only be fully functional once features
 
 ![ScreenShot](/releases.png)
 
+### Search/Toggle/Player Example 
+
+![ScreenShot](/search.png)
+
 
 
 ## How to Run
