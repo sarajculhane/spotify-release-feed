@@ -12,7 +12,7 @@ trap cleanup_at_exit EXIT
 
 git checkout -b deploy
 
-webpack -p
+webpack
 
 
 git add -f public/dist/bundle.js secrets.js

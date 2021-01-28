@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const UserProfile = (props) => {
     const {user} = props.history.location.state
-    console.log(user)
+
     return (
         <div><Nav user={user}/>
 <div class="card" style={{width: '18rem'}}>

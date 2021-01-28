@@ -2,15 +2,25 @@
 
 Production Instance : https://spotify-release.herokuapp.com/
 
+Updated as of 1/28/21. Note key changes:
+
+* Search by title or song name
+* Makes calls to additional endpoint to receive specific info about tracks (duration and preview for the app's purposes)
+* Player for each track to listen to a preview (if available)
+* Toggle the details specific track within the feed and other UI improvements
+
+
+
 ## About the App
 
 
 
-While Spotify has many complex and highly effective recommendation methods and provides users with some release updates via it's curated playlists, it does not have a full feed of new releases based on a user's followed artists. Thus, this application utilizes the Spotify Web API (see https://developer.spotify.com/documentation/web-api/) for more info and documentation) to get an authorized user's followed artists and show a reverse choronology Release feed based on these artists. The following endpoints are currently utilized in this application:
+While Spotify has many complex and highly effective recommendation methods and provides users with some release updates via it's curated playlists, it does not have a full feed of new releases based on a user's followed artists. Thus, this application utilizes the Spotify Web API (see https://developer.spotify.com/documentation/web-api/ for more info and documentation) to get an authorized user's followed artists and show a reverse choronology release feed based on these artists. The following endpoints are currently utilized in this application:
 
 1. User Profile to get the current user's profile information (/v1/me)
 2. User Following to get all followed Artists (/v1/me/following)
 3. Artists Albums to get all users new releases (/v1/artists/{id}/albums) - it will show singles as well as new albums based on the API 
+4. Album Tracks based on "Album" id that provides further details about a given track if available (v1/albums/${id}/tracks)
 
 
 Using these endpoints, the application renders the most recent tracks by all of the users artist in reverse chronological order.  Note that it is limited to the 3 most recent tracks/albums per artist.  
@@ -27,25 +37,25 @@ This app primarly utilizes an Express server (primarily to obtain token for OAut
 
 The key limitation of this app is that, for users that follow a larger number of artists (this has been tested with two accounts, one with ~100 followed artists and one with ~500), the loading can be incredibly slow or timeout can occur with the API.  The ideal solution would be to implement lazy loading, but in order to show a reverse chronological order, all artist album data must be fully loaded in order to properly sort by date.  I am hoping to find a way to, at minimum improve,the user experience while the data loads or to implement some caching method.
 
-### Track Info Feature
-
-With the current endpoints, the track info is not available.  To obtain, a Tracks endpoint will need to be called and then those tracks(s) obtains through the Album Id.
-
 ### Redesign with GraphQL
 
 The Spotify API supports GraphQL and has strong documentation regarding how to utilize it. I am considering leveraging it as opposed to REST eventually.
 
 ### UI Improvements
 
-There are handful of simple and more involved UI improvements that I intend to make in the future, the most critical being providing a better user loading experience as well as allow the user to see track info.
+There are handful of simple and more involved UI improvements that I intend to make in the future, the most critical being providing a better user loading experience through webpack code splitting or similar methods to reduce the weight of the bundle.js.
 
 ## Search Functionality
 
-Users should be able to search by artist or title once the data loads. I have started to work on this feature but am still working through some bugs (not in production but code thus far has been pushed to this repo).
+Users are now to able to search by artist or title once the data loads.
 
 ## Screenshots
 
-* The current UI is minimalist and built solely with plain CSS Flexbox and is fully responsive.  I will continued to update the UI as I improve other features but have intentionally opted out of using CSS Frameworks for the time being.
+* The current UI is minimalist, and initially the App was built solely with plain CSS Flexbox but recently some Bootstrap components have been added to simply the build.
+
+## User Profile 
+
+The user profile is in the works but will only be fully functional once features are implemented to better maintain state at the app level (either thru Redux or useContext and possible some caching methods)
 
 ### Login
 
