@@ -6,7 +6,7 @@ Updated as of 1/28/21. Note key changes:
 
 * Search by title or song name
 * Makes calls to additional endpoint to receive specific info about tracks (duration and preview for the app's purposes)
-* Player for each track to listen to a preview (if available)
+* Player for each track to listen to a preview within the App (if available)
 * Toggle the details specific track within the feed and other UI improvements
 
 
@@ -51,11 +51,11 @@ Users are now to able to search by artist or title once the data loads.
 
 ## Screenshots
 
-* The current UI is minimalist, and initially the App was built solely with plain CSS Flexbox but recently some Bootstrap components have been added to simply the build.
+* The current UI is minimalist, and initially the App was built solely with plain CSS Flexbox but recently some Bootstrap components have been added to simplify the build.
 
 ## User Profile 
 
-The user profile is in the works but will only be fully functional once features are implemented to better maintain state at the app level (either thru Redux or useContext and possible some caching methods)
+The user profile is in the works but will only be fully functional once features are implemented to better maintain state at the app level (either thru Redux or useContext and possiblh some caching methods)
 
 ### Login
 
