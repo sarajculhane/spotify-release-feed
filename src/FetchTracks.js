@@ -33,10 +33,10 @@ const FetchAll = (props) => {
                 console.log(err)
             }
         }
-       ids.forEach((id) => fetchTracks(id)) 
-
+           ids.forEach((id) => setTimeout(() => fetchTracks(id),  4000) )
         return () => {
             mounted  = true
+            
         }
         
     }, []) 

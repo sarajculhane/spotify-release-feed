@@ -15,7 +15,6 @@ const Login = () => {
         }
 
         const {access_token, refresh_token, error} = getHashParams()
-        const [success, setSuccess] = useState(false)
         const [user, setUser] = useState({})
         const [token, setToken] = useState(access_token)
         const [status, setStatus] = useState('login') 
@@ -57,7 +56,7 @@ const Login = () => {
            
             
           <div>
-              <Nav user={user} toke={token}/>
+              <Nav user={user} token={token}/>
           {status === 'loggedin' ? <div>
                 
                   <FetchArtists token={token} />

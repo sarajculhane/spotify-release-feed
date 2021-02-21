@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import SingleTrack from './SingleTrack'
+import SelectDates from './SelectDates'
 
 
 const Search = (props) => {
@@ -39,12 +40,21 @@ const Search = (props) => {
     }
 
     
+    const handleSelect = (e) => {
+        e.preventDefault()
+        // if(e.target.value === 'week' || '')
+        // else if (e.target.value === 'month') 
+        // else {
 
+        // }
+
+    }
 
 
     
     return (
         <div>
+            <SelectDates handleSelect={handleSelect} />
               <form className='search-form row g-2' onSubmit={handleSubmit}>
               <div class="col-auto">
             <input type='text' className='search' name='search' />
